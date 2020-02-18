@@ -25,7 +25,7 @@ SECRET_KEY = '!!wvmnd2c=&0#pbbb%u0hz9b4!4#e@ad&mbr+c59+j*-k(w_6='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # deixado True só para proposito do teste no Boticario
 
-ALLOWED_HOSTS = ['juliom6.pythonanywhere.com','192.168.0.9']
+ALLOWED_HOSTS = ['juliom6.pythonanywhere.com','192.168.0.6']
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
-    'cashback.apps.CashbackConfig',
+    'usuarios.apps.UsuariosConfig',
+    'paginas.apps.PaginasConfig',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'cashback_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,11 +86,11 @@ WSGI_APPLICATION = 'cashback_project.wsgi.application'
 # Para usar Postgresql (testado em desenvolvimento)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'cashback',
         'USER': 'boticario',
         'PASSWORD': 'boticario',
-        'HOST': '192.168.0.9',
+        'HOST': '192.168.0.6',
         'PORT': '5432',
     }
 }
@@ -132,3 +133,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'usuarios.Revendedor'
+
+LOGIN_REDIRECT_URL = 'inicio'
+LOGOUT_REDIRECT_URL = 'inicio'
