@@ -6,11 +6,11 @@ class RevendedorCreationForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'username',)
+        fields = ('username', 'email', 'nome_completo', 'cpf')
 
 
 class RevendedorChangeForm(UserChangeForm):
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'username',)
+        fields = ('username', 'email',  'nome_completo', 'cpf')
