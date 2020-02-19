@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'usuarios.apps.UsuariosConfig',
     'paginas.apps.PaginasConfig',
-    'compras.apss.ComprasConfig'
+    'compras.apps.ComprasConfig'
 ]
 
 MIDDLEWARE = [
