@@ -17,7 +17,7 @@ class PaginaInicioTests(SimpleTestCase):
         self.assertTemplateUsed(self.response, 'inicio.html')
 
     def test_pagina_inicio_contem_html(self):
-        self.assertContains(self.response, 'Pagina')
+        self.assertContains(self.response, 'em-vindo')
 
     def test_pagina_inicio_nao_contem_html(self):
         self.assertNotContains(
