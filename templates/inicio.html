@@ -5,7 +5,7 @@
 {% block content %}
 <h1>O Boticário | Bem-vindo colaborador</h1>
 {% if user.is_authenticated %}
-  Oi {{ user.username }}!
+  <b>Oi {{ user.username }}!<b>
   <p><a href="{% url 'logout' %}">Sair</a></p>
 {% else %}
   <p>Você não se encontra logado!</p>
