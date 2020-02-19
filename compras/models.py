@@ -1,13 +1,20 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from django.core.validators import RegexValidator
 
 
 class Article(models.Model):
-	pass
-    # title = models.CharField(max_length=255)
-    # body = models.TextField()
-    # date = models.DateTimeField(auto_now_add=True)
+    STATUS = (
+        ('E', 'Em avaliação'),
+        ('A', 'Aprovado'),
+    )
+
+    codigo = models.CharField(max_length=40)
+    valor  = models.DecimalField(blank=True, null=True, max_digits=15,  decimal_places=5)
+    cpf    = models.CharField(max_length=11, default='', validators=[RegexValidator(regex='^\d{11}$', message='Escreva so os 11 digitos')])    # body = models.TextField()
+    data   = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=1, choices=STATUS)
     # author = models.ForeignKey(
     #     get_user_model(),
     #     on_delete=models.CASCADE,
