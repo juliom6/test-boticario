@@ -10,5 +10,6 @@ urlpatterns = [
 
     # Apps
     path('contas/', include('usuarios.urls')), 
+    path('compras/', include('compras.urls')), 
     path('', include('paginas.urls')), 
 ]

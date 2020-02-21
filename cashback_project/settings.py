@@ -95,6 +95,7 @@ DATABASES = {
 #         'PASSWORD': 'boticario',
 #         'HOST': '192.168.0.6',
 #         'PORT': '5432',
+#         'TIME_ZONE': 'America/Sao_Paulo'
 #     }
 # }
 

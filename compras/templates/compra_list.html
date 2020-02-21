@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+
+{% block title %}Compras{% endblock title %}
+
+{% block content %}
+  {% for compra in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold">{{ compra.codigo }}</span> &middot;
+        <span class="text-muted">by {{ compra.revendedor }} | {{ compra.data }}</span>
+      </div>
+      <div class="card-body">
+        {{ compra.valor }}
+        {{ compra.status }}
+      </div>
+      <div class="card-footer text-center text-muted">
+        <a href="#">Editar</a> |
+        <a href="#">Apagar</a>
+      </div>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}
