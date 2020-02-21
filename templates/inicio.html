@@ -3,13 +3,11 @@
 {% block title %}Inicio{% endblock title %}
 
 {% block content %}
-<!-- <h1>O Boticário</h1> -->
 {% if user.is_authenticated %}
-    <h3 style="text-align: right;" class="text-success" >Bem-vindo colaborador: <em class="text-primary">{{ user.username }} - {{ user.nome_completo }} - {{ user.cpf }}!<em></h3>
-    <!-- <p><a href="{% url 'logout' %}">Sair</a></p> -->
+    <h3 style="text-align: right;" class="text-primary" ><em>Bem-vind@ {{user.first_name|title}}!</em> | CPF: {{ user.cpf }}</h3>
 {% else %}
     <p class="h2 text-danger">Bem-vindo ao nosso site. Você não se encontra logado!</p>
-    <a href="{% url 'login' %}">Entrar</a> | 
-    <a href="{% url 'cadastro' %}">Cadastrar</a>
+    <!-- <a href="{% url 'login' %}">Entrar</a> |  -->
+    <!-- <a href="{% url 'cadastro' %}">Cadastrar</a> -->
 {% endif %}
 {% endblock content %}
