@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="article-entry">
+  <h2>{{ object.codigo }}</h2>
+    <p>by {{ object.revendedor }} | {{ object.data }}</p>
+    <p>{{ object.valor }}</p>
+  </div>
+
+  <p><a href="{% url 'compra_editar' compra.pk %}">Editar</a> | <a href="{% url 'compra_apagar' compra.pk %}">Apagar</a></p>
+  <p>Voltar para <a href="{% url 'compra_lista' %}">todas as compras</a>.</p>
+{% endblock content %}

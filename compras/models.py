@@ -20,4 +20,4 @@ class Compra(models.Model):
         return self.codigo + ' - ' + str(self.data)
 
     def get_absolute_url(self):
-        return reverse('compra_detail', args=[str(self.id)])
+        return reverse('compra_detalhe', args=[str(self.id)])

@@ -10,12 +10,14 @@
         <span class="text-muted">by {{ compra.revendedor }} | {{ compra.data }}</span>
       </div>
       <div class="card-body">
-        {{ compra.valor }}
-        {{ compra.status }}
+        <div>Valor : {{ compra.valor }}</div>
+        <div>Status: 
+          {% if compra.status == "E" %}Em avaliação{% endif %}
+          {% if compra.status == "A" %}Aprovado{% endif %}
+        </div>
       </div>
       <div class="card-footer text-center text-muted">
-        <a href="#">Editar</a> |
-        <a href="#">Apagar</a>
+        <a href="{% url 'compra_detalhe' compra.pk %}">Editar</a> | <a href="{% url 'compra_apagar' compra.pk %}">Apagar</a>
       </div>
     </div>
     <br />
