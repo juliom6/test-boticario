@@ -3,7 +3,7 @@ from django.urls import path, include
 
 urlpatterns = [
 	# Painel de administrador
-    path('gerenciador', admin.site.urls),
+    path('gerenciador/', admin.site.urls),
 
     # Gerenciador de usuarios
     path('contas/', include('django.contrib.auth.urls')),
