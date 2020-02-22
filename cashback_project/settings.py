@@ -78,26 +78,26 @@ WSGI_APPLICATION = 'cashback_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'TIME_ZONE': 'America/Sao_Paulo'
-    }
-}
-
-# Para usar Postgresql (testado em desenvolvimento)
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'cashback',
-#         'USER': 'boticario',
-#         'PASSWORD': 'boticario',
-#         'HOST': '192.168.0.6',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #         'TIME_ZONE': 'America/Sao_Paulo'
 #     }
 # }
+
+# Para usar Postgresql (testado em desenvolvimento)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cashback',
+        'USER': 'boticario',
+        'PASSWORD': 'boticario',
+        'HOST': '192.168.0.7',
+        'PORT': '5432',
+        # 'TIME_ZONE': 'America/Sao_Paulo'
+    }
+}
 
 
 # Password validation
