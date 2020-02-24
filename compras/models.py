@@ -11,7 +11,7 @@ class Compra(models.Model):
     )
 
     codigo      = models.CharField(max_length=40)
-    valor       = models.DecimalField(blank=True, null=True, max_digits=15,  decimal_places=5)
+    valor       = models.DecimalField(blank=True, null=True, max_digits=15,  decimal_places=2)
     data        = models.DateTimeField(auto_now_add=True)
     status      = models.CharField(max_length=1, choices=STATUS)
     revendedor  = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)

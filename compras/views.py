@@ -3,23 +3,36 @@ from django.core.exceptions import PermissionDenied
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.contrib.auth.models import AnonymousUser
+from rest_framework.permissions import IsAuthenticated
+
+from django.utils.functional import SimpleLazyObject
+from django.contrib.auth.middleware import get_user
+# from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from .models import Compra
 
-
-class CompraListView(ListView):
+class CompraListView(LoginRequiredMixin, ListView):
+    permission_classes = (IsAuthenticated,)
     model = Compra
     template_name = 'compra_lista.html'
     login_url = 'login'
 
+    # @staticmethod
+    # def get_jwt_user(request):
+    #     user = get_user(request)
+    #     if user.is_authenticated:
+    #         return user
+    #     jwt_authentication = JSONWebTokenAuthentication()
+    #     if jwt_authentication.get_jwt_value(request):
+    #         user, jwt = jwt_authentication.authenticate(request)
+    #     return user
+
     def get_queryset(self):
-        if self.request.user != AnonymousUser():
-            usuario = self.request.user
-            queryset = Compra.objects.filter(revendedor=usuario)
-            return queryset
-        else:
-            raise PermissionDenied
+        # print(get_user(SimpleLazyObject(lambda:self.__class__.get_jwt_user(request))))
+        usuario = self.request.user
+        print(type(self.request.user))
+        queryset = Compra.objects.filter(revendedor=usuario)
+        return queryset
 
 class CompraCreateView(LoginRequiredMixin, CreateView):
     model = Compra

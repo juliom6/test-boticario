@@ -6,7 +6,7 @@ from .views import (
 	CompraDetailView,
 	CompraUpdateView,
 	CompraDeleteView,
-	)
+)
 
 urlpatterns = [
 	path('', CompraListView.as_view(), name='compra_lista'),
