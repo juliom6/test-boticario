@@ -24,9 +24,9 @@
           {% if 1500 < compra.valor %}20%{% endif %}
         </div>
         <div><b>Valor de Cashback :</b>
-          {% if compra.valor <= 1000 %}{{ compra.valor|mul:0.1 }}{% endif %}
-          {% if 1000 < compra.valor and compra.valor <= 1500 %}{{ compra.valor|mul:0.15 }}{% endif %}
-          {% if 1500 < compra.valor %}{{ compra.valor|mul:0.2 }}{% endif %}
+          {% if compra.valor <= 1000 %}{{ compra.valor|mul:0.1|floatformat:"-2" }}{% endif %}
+          {% if 1000 < compra.valor and compra.valor <= 1500 %}{{ compra.valor|mul:0.15|floatformat:"-2" }}{% endif %}
+          {% if 1500 < compra.valor %}{{ compra.valor|mul:0.2|floatformat:"-2" }}{% endif %}
         </div>
       </div>
       <div class="card-footer text-center text-muted">

@@ -7,6 +7,7 @@
     <h3 class="m-4 p-1 font-weight-bold"><em>Bem-vind@ {{user.first_name|title}}!</em> | CPF: {{ user.cpf }}</h3>
     <p class="lead m-5" >
         <a class="btn btn-primary btn-lg" href="{% url 'compra_lista' %}" role="button">Ver todas suas compras</a>
+        <a class="btn btn-success btn-lg" href="{% url 'cashback' %}" role="button">Ver acumulado de cashback</a>
     </p>    
 {% else %}
     <p class="h2">Bem-vindo ao nosso site. Você não se encontra logado!</p>

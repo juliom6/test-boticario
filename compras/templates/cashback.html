@@ -1,0 +1,11 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+<h3 class="m-5">Acumulado de cashback até o momento:</h3>
+<h1 class="d-flex justify-content-center text-success m-4">&#36 {{ valor }}</h1>
+<div id='dados'>
+</div>
+<a class="btn btn-primary btn-lg" href="{% url 'inicio' %}" role="button">Voltar ao inicio</a>
+
+{% endblock content %}

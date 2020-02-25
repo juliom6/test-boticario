@@ -4,9 +4,11 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from rest_framework.permissions import IsAuthenticated
-
 from django.utils.functional import SimpleLazyObject
 from django.contrib.auth.middleware import get_user
+from django.views.generic import TemplateView
+import requests
+from django.contrib.auth import get_user_model
 # from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from .models import Compra
@@ -30,7 +32,6 @@ class CompraListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         # print(get_user(SimpleLazyObject(lambda:self.__class__.get_jwt_user(request))))
         usuario = self.request.user
-        print(type(self.request.user))
         queryset = Compra.objects.filter(revendedor=usuario)
         return queryset
 
@@ -76,3 +77,26 @@ class CompraDeleteView(DeleteView):
         if compra.revendedor != self.request.user:
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
+
+
+class CashbackView(LoginRequiredMixin, TemplateView):
+    login_url = 'login'
+    template_name = 'cashback.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(CashbackView, self).get_context_data(*args, **kwargs)
+
+        # if self.request.user.is_authenticated:
+        usuario = get_user_model().objects.filter(username__exact=self.request.user)[0]
+        payload = {'cpf': usuario.cpf}
+
+        try:
+            r = requests.get('https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com/v1/cashback', params=payload)
+        except ConnectionError:
+            return HttpResponse(status=504) # Gateway Timeout
+        else:
+            json = r.json()
+            if json['statusCode'] == 200:
+                context['valor'] = json['body']['credit']
+
+        return context
