@@ -5,7 +5,7 @@
 {% block title %}Compras{% endblock title %}
 
 {% block content %}
-  <h3 class="m-4">Lista de compras</h3>
+  <span class="m-4 h3">Lista de compras</span>
   {% for compra in object_list %}
     <div class="card">
       <div class="card-header">
@@ -35,4 +35,6 @@
     </div>
     <br />
   {% endfor %}
+  <a class="btn btn-primary btn-sm m-1" href="{% url 'inicio' %}" role="button">Voltar ao inicio</a>  
+  <a class="btn btn-success btn-sm m-1" href="{% url 'compra_novo' %}" role="button">+Cadastrar nova compra</a>
 {% endblock content %}

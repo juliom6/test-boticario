@@ -13,7 +13,7 @@ SECRET_KEY = '!!wvmnd2c=&0#pbbb%u0hz9b4!4#e@ad&mbr+c59+j*-k(w_6='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # deixado True só para proposito do teste no Boticario
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 

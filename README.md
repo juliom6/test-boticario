@@ -15,40 +15,34 @@ pipenv install
 pipenv shell
 ```
 
-Para migrar o banco de dados:
+Para migrar o banco de dados (testado com postgresql e sqlite):
 
 ```console
 python manage.py migrate
 ``` 
 
-Para criar um usuario:
+Para criar um superusuario (usuarios normais podem ser criados desde o app):
 
 ```console
 python manage.py createsuperuser
 ```
 
-Para rodar o servidor localmente:
+Para rodar o servidor em desenvolvimento:
 
 ```console
 python manage.py runserver
 ```
 
+Para rodar o servidor em produção:
+
+```console
+waitress-serve --port=80 cashback_project.wsgi:application
+```
+
 Para rodar os testes:
 
 ```console
-pytest cashback
-```
-
-Para instalar no docker e rodar
-
-```console
-docker-compose docker-compose.yml up
-```
-
-and add to your .env
-
-```console
-DATABASE_URL=postgres://boticario:boticario@localhost:5432/cashback
+python manage.py test
 ```
 
 Have fun!
