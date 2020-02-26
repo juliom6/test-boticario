@@ -3,7 +3,7 @@
 Source code of website http://juliom6.pythonanywhere.com/
 
 
-Desenvolvido usando Django
+Desenvolvido usando Django. Eh possivel cadastrar compras como solicitado nas especificaçoes. É possivel usar os bancos Postgresql e Sqlite mas pode se usar outro sem maior dificuldade. Tem alguns testes unitarios mas nao foram escritos testes de integração. Foram criadas as rotas para criar tokens JWT de accesso e refresh.
 
 Para instalar localmente
 
