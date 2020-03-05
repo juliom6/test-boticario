@@ -13,7 +13,7 @@ SECRET_KEY = '!!wvmnd2c=&0#pbbb%u0hz9b4!4#e@ad&mbr+c59+j*-k(w_6='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # deixado True só para proposito do teste no Boticario
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost','juliom6.pythonanywhere.com']
 
 # Application definition
 
@@ -68,26 +68,26 @@ WSGI_APPLICATION = 'cashback_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         'TIME_ZONE': 'America/Sao_Paulo'
-#     }
-# }
-
-# Para usar Postgresql (testado em desenvolvimento)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cashback',
-        'USER': 'boticario',
-        'PASSWORD': 'boticario',
-        'HOST': '192.168.0.7',
-        'PORT': '5432',
-        # 'TIME_ZONE': 'America/Sao_Paulo'
-    }
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'TIME_ZONE': 'America/Sao_Paulo'
+ }
 }
+
+# Para usar Postgresql (testado em desenvolvimento)
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'cashback',
+#        'USER': 'boticario',
+#        'PASSWORD': 'boticario',
+#        'HOST': '192.168.0.7',
+#        'PORT': '5432',
+#        # 'TIME_ZONE': 'America/Sao_Paulo'
+#    }
+#}
 
 
 # Password validation
