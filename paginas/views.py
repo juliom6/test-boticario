@@ -9,3 +9,7 @@ class PaginaInicioView(TemplateView):
 def tempoView(request):
     if request.method == 'GET':
         return JsonResponse({'unixtime': int(time.mktime(datetime.now().timetuple()))})
+
+def contatoView(request):
+    if request.method == 'GET':
+        return JsonResponse({'a' : 'b'}, status=200)
