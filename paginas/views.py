@@ -19,7 +19,7 @@ def contatoView(request):
         nome = request.GET.get('nome')
         email = request.GET.get('email')
         mensagem = request.GET.get('mensagem')
-        return HttpResponse('<h2>Obrigado ' + nome + '!!</h2><br /><h3>Recebimos sua requisicao GET.</h3>', content_type='text/html', status=201)
+        return HttpResponse('<h2>Obrigado ' + nome.split()[0] + '!!</h2><br /><h3>Recebimos sua requisicao GET.</h3>', content_type='text/html', status=201)
 
     if request.method == 'POST':
         print(request.POST.get('nome'))
@@ -28,4 +28,4 @@ def contatoView(request):
         nome = request.POST.get('nome')
         email = request.POST.get('email')
         mensagem = request.POST.get('mensagem')
-        return HttpResponse('<h2>Obrigado ' + nome + '!!</h2><br /><h3>Recebimos sua requisicao POST.</h3>', content_type='text/html', status=201)
+        return HttpResponse('<h2>Obrigado ' + nome.split()[0] + '!!</h2><br /><h3>Recebimos sua requisicao POST.</h3>', content_type='text/html', status=201)
