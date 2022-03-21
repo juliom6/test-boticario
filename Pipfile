@@ -16,7 +16,7 @@ django-filter = "==2.2.0"
 djangorestframework-simplejwt = "==4.4.0"
 django-mathfilters = "==1.0.0"
 requests = "==2.23.0"
-waitress = "==1.4.3"
+waitress = "==2.1.1"
 
 [requires]
 python_version = "3.8"
